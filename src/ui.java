@@ -9,12 +9,13 @@ public class ui extends JFrame {
     ArrayList<Dolgozo> dolgozoklista=new ArrayList<>();
     public ui(){
 
-        try (FileReader reader = new FileReader("adatok.txt");
-             BufferedReader br = new BufferedReader(reader)) {
+        try {
+            FileReader reader = new FileReader("adatok.txt");
+            BufferedReader br = new BufferedReader(reader);
             String sor=br.readLine();
-            while ((sor) != null) {
+            while (sor != null) {
 
-                String [] adatok=sor.split("\\s+");
+                String [] adatok=sor.split(" ");
                 String vezeteknev=adatok[0];
                 String keresztnev=adatok[1];
                 String nem=adatok[2];
@@ -22,7 +23,8 @@ public class ui extends JFrame {
                 int fizetes=Integer.parseInt(adatok[4]);
                 Dolgozo dolgozo=new Dolgozo(vezeteknev,keresztnev,nem,kor,fizetes);
                 dolgozoklista.add(dolgozo);
-
+                sor=br.readLine();
+                System.out.println(sor);
 
             }
         reader.close();
@@ -56,8 +58,8 @@ public class ui extends JFrame {
 
         for (Dolgozo f :dolgozoklista) {
             if (f.fizetes>legnagyobbfizu){
-                f.fizetes=legnagyobbfizu;
-                nev=f.keresztnev+" "+f.vezeteknev;
+                legnagyobbfizu=f.fizetes;
+                nev=f.vezeteknev+" "+f.keresztnev;
                 nem=f.nem;
                 kor=f.kor;
             }
