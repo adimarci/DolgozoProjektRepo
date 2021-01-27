@@ -3,9 +3,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.Scanner;
 public class ui extends JFrame {
-    JPanel mainPanel;
+
     ArrayList<Dolgozo> dolgozoklista=new ArrayList<>();
     public ui(){
 
@@ -68,8 +68,10 @@ public class ui extends JFrame {
 
     }
     public void feladat6(){
-        System.out.println("Kérem adjon meg egy összeget:");
-        int megadottosszeg=Integer.parseInt(System.console().readLine());
+        int megadottosszeg=0;
+        Scanner myObj = new Scanner(System.in);
+        System.out.println("Adjon meg egy összeget");
+        megadottosszeg = Integer.parseInt(myObj.nextLine());
         boolean van=false;
         for (Dolgozo f:dolgozoklista) {
             if (f.fizetes<megadottosszeg){
@@ -77,8 +79,12 @@ public class ui extends JFrame {
             }
         }
         if (van==true){
-            System.out.println("Van olyan dolgozó akinek a fizetése"+megadottosszeg+" Ft felett van");
+            System.out.println("Van olyan dolgozó akinek a fizetése "+megadottosszeg+" Ft felett van");
+
+        }else{
+            System.out.println("nincsen ilyen doolgozó");
         }
+
 
     }
 }

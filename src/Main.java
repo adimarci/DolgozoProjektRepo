@@ -18,5 +18,7 @@ public class Main {
         dolgozo.feladat5();
         System.out.println("6.feladat");
         dolgozo.feladat6();
+
+
     }
 }
