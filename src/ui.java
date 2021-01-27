@@ -23,6 +23,7 @@ public class ui extends JFrame {
                 Dolgozo dolgozo=new Dolgozo(vezeteknev,keresztnev,nem,kor,fizetes);
                 dolgozoklista.add(dolgozo);
 
+
             }
         reader.close();
             br.close();
